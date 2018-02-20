@@ -1,0 +1,98 @@
+package com.sung.noel.tw.digitmanager.main.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+/**
+ * Created by User on 2018/2/19.
+ */
+
+public class PictureData implements Parcelable {
+    //圖片名稱
+    private String name;
+    //圖片info
+    private String info;
+    //圖片數據
+    private byte[] data;
+    //圖片路徑
+    private String path;
+    //圖片創建日期
+    private String date;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeString(this.info);
+        dest.writeByteArray(this.data);
+        dest.writeString(this.path);
+        dest.writeString(this.date);
+    }
+
+    public PictureData() {
+    }
+
+    protected PictureData(Parcel in) {
+        this.name = in.readString();
+        this.info = in.readString();
+        this.data = in.createByteArray();
+        this.path = in.readString();
+        this.date = in.readString();
+    }
+
+    public static final Parcelable.Creator<PictureData> CREATOR = new Parcelable.Creator<PictureData>() {
+        @Override
+        public PictureData createFromParcel(Parcel source) {
+            return new PictureData(source);
+        }
+
+        @Override
+        public PictureData[] newArray(int size) {
+            return new PictureData[size];
+        }
+    };
+}

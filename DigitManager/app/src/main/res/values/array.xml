@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="navigations">
+        <item>@string/navigation_camera</item>
+        <item>@string/navigation_screenshot</item>
+    </string-array>
+</resources>

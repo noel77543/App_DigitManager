@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">迪吉特管家</string>
+
+
+    <string name="navigation_screenshot">螢幕截圖</string>
+    <string name="navigation_camera">相機拍照</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="dialog_accept">接受</string>
+    <string name="dialog_go_set">前往進行設定</string>
+    <string name="dialog_message">您必須允許MyBox閱讀此裝置外部資料夾之權限才可使用完整功能</string>
+
+    //facebook
+    <string name="facebook_app_id">1224010834398412</string>
+    <string name="facebook_unlogin">請先登入Facebooka以便使用其功能</string>
+</resources>
