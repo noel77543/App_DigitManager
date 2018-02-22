@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_color"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:textColor="@android:color/white"
+        android:background="@drawable/selector_main_tabs_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_height"
+        tools:text="門票"
+        android:gravity="center" />
+</LinearLayout>

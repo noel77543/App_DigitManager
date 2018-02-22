@@ -1,9 +1,13 @@
 <resources>
-    <string name="app_name">迪吉特管家</string>
+    <string name="app_name">Mr.Digit</string>
+
+    <!--main tab-->
+    <string name="main_tab_photo">圖片</string>
+    <string name="main_tab_audio">語音</string>
+    <string name="main_tab_video">影像</string>
+    <string name="main_tab_favorite">我的最愛</string>
 
 
-    <string name="navigation_screenshot">螢幕截圖</string>
-    <string name="navigation_camera">相機拍照</string>
     <string name="dialog_cancel">取消</string>
     <string name="dialog_accept">接受</string>
     <string name="dialog_go_set">前往進行設定</string>

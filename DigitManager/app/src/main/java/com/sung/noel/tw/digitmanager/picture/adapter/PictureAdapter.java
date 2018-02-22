@@ -1,20 +1,16 @@
-package com.sung.noel.tw.digitmanager.main.adapter;
+package com.sung.noel.tw.digitmanager.picture.adapter;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.sung.noel.tw.digitmanager.R;
-import com.sung.noel.tw.digitmanager.main.model.PictureData;
 
-import java.io.File;
-import java.util.ArrayList;
+import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,30 +21,25 @@ import butterknife.ButterKnife;
 
 public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<PictureData> pictureDatas;
+    private String[] packageNames;
     private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
 
     public PictureAdapter(Context context) {
         this.context = context;
-        pictureDatas = new ArrayList<>();
+        packageNames = new String[0];
     }
 
     //--------------------
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_picture, parent, false));
+                .inflate(R.layout.grid_picture, parent, false));
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
-        PictureData pictureData = pictureDatas.get(position);
-        holder.tvName.setText(pictureData.getName());
-        Glide.with(context)
-                .load(getUriFromSDCard(pictureData.getPath()))
-                .error(R.drawable.img_default)
-                .into(holder.ivPicture);
+        holder.tvPackageName.setText(packageNames[position]);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,16 +50,13 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return pictureDatas.size();
+        return packageNames.length;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.iv_picture)
-        ImageView ivPicture;
-        @BindView(R.id.tv_name)
-        TextView tvName;
-        @BindView(R.id.tv_date)
-        TextView tvDate;
+        @BindView(R.id.tv_package_name)
+        TextView tvPackageName;
+
 
         ViewHolder(View view) {
             super(view);
@@ -91,22 +79,13 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureAdapter.ViewHold
 
     /***
      *  更新資料
-     * @param pictureDatas
+     * @param packageNames
      */
-    public void setData(ArrayList<PictureData> pictureDatas) {
-        this.pictureDatas = pictureDatas;
+    public void setData(Set<String> packageNames) {
+        this.packageNames = packageNames.toArray(new String[0]);
+        for (int i = 0; i < this.packageNames.length; i++) {
+            Log.e("" + i, this.packageNames[i]);
+        }
         notifyDataSetChanged();
-    }
-
-    //---------
-
-    /***
-     *  讀取絕對路徑中的圖片
-     * @param filePath
-     * @return
-     */
-    private Uri getUriFromSDCard(String filePath) {
-        File file = new File(filePath);
-        return Uri.fromFile(file);
     }
 }

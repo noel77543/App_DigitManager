@@ -1,4 +1,4 @@
-package com.sung.noel.tw.digitmanager.facebook;
+package com.sung.noel.tw.digitmanager.util.facebook;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -16,8 +16,8 @@ import com.facebook.share.ShareApi;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.sung.noel.tw.digitmanager.R;
-import com.sung.noel.tw.digitmanager.implement.OnSuccessLoginFacebookListener;
-import com.sung.noel.tw.digitmanager.main.MainActivity;
+import com.sung.noel.tw.digitmanager.util.implement.OnSuccessLoginFacebookListener;
+import com.sung.noel.tw.digitmanager.MainActivity;
 
 import java.util.Arrays;
 import java.util.List;

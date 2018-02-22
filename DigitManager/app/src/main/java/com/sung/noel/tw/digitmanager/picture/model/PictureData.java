@@ -1,4 +1,4 @@
-package com.sung.noel.tw.digitmanager.main.model;
+package com.sung.noel.tw.digitmanager.picture.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -18,6 +18,16 @@ public class PictureData implements Parcelable {
     private String path;
     //圖片創建日期
     private String date;
+    //資料夾名稱
+    private String packageName;
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
+    }
 
     public String getName() {
         return name;
@@ -59,6 +69,7 @@ public class PictureData implements Parcelable {
         this.date = date;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -71,6 +82,7 @@ public class PictureData implements Parcelable {
         dest.writeByteArray(this.data);
         dest.writeString(this.path);
         dest.writeString(this.date);
+        dest.writeString(this.packageName);
     }
 
     public PictureData() {
@@ -82,6 +94,7 @@ public class PictureData implements Parcelable {
         this.data = in.createByteArray();
         this.path = in.readString();
         this.date = in.readString();
+        this.packageName = in.readString();
     }
 
     public static final Parcelable.Creator<PictureData> CREATOR = new Parcelable.Creator<PictureData>() {

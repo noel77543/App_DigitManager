@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="navigations">
-        <item>@string/navigation_camera</item>
-        <item>@string/navigation_screenshot</item>
+    <string-array name="main_tab_array">
+        <item>@string/main_tab_photo</item>
+        <item>@string/main_tab_audio</item>
+        <item>@string/main_tab_video</item>
+        <item>@string/main_tab_favorite</item>
     </string-array>
+
+
+
 </resources>
